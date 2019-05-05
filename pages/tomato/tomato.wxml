@@ -1,2 +1,56 @@
-<!--pages/tomato/tomato.wxml-->
-<text>pages/tomato/tomato.wxml</text>
+<view class="container">
+  <view class="clock">
+    <t-clock
+      text="{{time}}"
+      fontSize="70"
+    ></t-clock>
+  </view>
+  <view wx:if="{{!againButtonVisible}}">
+    <view class="stop">
+      <t-button
+        type="change"
+        size="mini"
+        text="暂停"
+        bind:tap="clearTimer"
+        wx:if="{{timerStatus==='start'}}"
+      ></t-button>
+      <t-button
+        type="change"
+        size="mini"
+        text="开始"
+        bind:tap="startTimer"
+        wx:else
+      ></t-button>
+    </view>
+    <view class="abandon">
+      <t-button
+        size="mini"
+        text="放弃"
+        bind:tap="showConfirm"
+      ></t-button>
+    </view>
+  </view>
+  <view
+    class="again"
+    wx:else
+    bindtap="againTimer"
+  >
+    <t-button
+      size="mini"
+      type="change"
+      text="再来一组"
+    ></t-button>
+  </view>
+  <t-confirm
+    visible="{{confirmVisible}}"
+    bind:confirm="confirmAbandon"
+    bind:cancel="hideConfirm"
+    placeholder="放弃理由"
+  ></t-confirm>
+  <t-confirm
+    visible="{{finishConfirmVisible}}"
+    bindconfirm="confirmFinish"
+    bindcancel="confirmCancel"
+    placeholder="完成了什么"
+  ></t-confirm>
+</view>
