@@ -20,6 +20,7 @@ Component({
         this.triggerEvent('cancel', this.data.value)
       },
       watchValue(event){
+        console.log(event)
         this.data.value = event.detail.value
       }
     }

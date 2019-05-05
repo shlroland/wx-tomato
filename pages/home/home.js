@@ -1,54 +1,39 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    lists: [
+      {id: 1, text: "我今天干了什么，明天干什么，后天干了什么", finished: true},
+      { id: 2, text: "后天噶什么，几天干甚了饿是卡号发给看书看发 ", finished: true },
+      { id: 3, text: "我今天干了什么，明天干什么，后天干了什么", finished: false },
+      { id: 4, text: "我今天干了什么，明天干什么，后天干了什么", finished: false },
+      { id: 5, text: "我今天干了什么，明天干什么，后天干了什么", finished: false },
+      {id: 6, text: "我今天干了什么，明天干什么，后天干了什么", finished: true},
+      { id: 7, text: "后天噶什么，几天干甚了饿是卡号发给看书看发 ", finished: true },
+      { id: 8, text: "我今天干了什么，明天干什么，后天干了什么", finished: false },
+      { id: 9, text: "我今天干了什么，明天干什么，后天干了什么", finished: false },
+    ],
+    visibleConfirm: false
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+  confirmCreate(event){
+    
+    let content = event.detail
+    if(content){
+      console.log(2)
+      let todo = [{id:this.data.lists.length + 1,text:content,finished:false}]
+      this.data.lists = todo.concat(this.data.lists)
+      this.setData({lists:this.data.lists})
+      this.hideConfirm()
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  destroyTodo(event){
+    
+    let index = event.currentTarget.dataset.index
+    this.data.lists[index].finished = true
+    this.setData({ lists: this.data.lists })
+  },
+  hideConfirm(){
+    this.setData({ visibleConfirm: false })
+  },
+  showConfirm(){
+    this.setData({ visibleConfirm: true })
   }
 })

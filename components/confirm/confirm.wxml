@@ -5,7 +5,7 @@
   <view class="confirm">
     <textarea
       placeholder="{{placeholder}}"
-      bindinput="watchVal"
+      bindinput="watchValue"
       value="{{value}}"
     ></textarea>
     <view class="actions">

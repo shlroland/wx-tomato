@@ -1,13 +1,39 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="home-container">
+  <scroll-view
+    class="todoList"
+    scroll-y="true"
+  >
+    <view
+      class="item"
+      wx:for="{{lists}}"
+      wx:key="{{item.id}}"
+      bindtap="destroyTodo"
+      data-index="{{index}}"
+    >
+      <view class="select {{item.finished && 'active'}}">
+      </view>
+      <text>{{item.text}}</text>
+    </view>
+  </scroll-view>
+  <t-button
+    type="change"
+    class="createButton"
+    text="创建任务"
+    bindtap="showConfirm"
+  >创建任务</t-button>
+  <view class="tomato-wrapper">
+  <navigator
+    class="tomato"
+    url="/pages/tomato/tomato"
+  >
+    <t-clock text="点击开始闹钟"></t-clock>
+  </navigator>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+  <t-confirm
+    placeholder="我完成了什么"
+    bindconfirm="confirmCreate"
+    bindcancel="hideConfirm"
+    visible="{{visibleConfirm}}"
+  ></t-confirm>
 </view>

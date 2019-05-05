@@ -1,6 +1,6 @@
-component(
+Component(
     {
-        properties{
+        properties:{
             size: {
                 type: String,
                 value: ''
