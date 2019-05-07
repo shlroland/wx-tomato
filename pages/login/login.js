@@ -26,8 +26,8 @@ Page({
       app_id,
       app_secret
     }).then(res => {
-      this.savaMessage(res)
-      wx.reLauch({ url: '/pages/home/home' })
+      this.saveMessage(res)
+      wx.reLaunch({ url: '/pages/home/home' })
     })
   },
   saveMessage(response) {
