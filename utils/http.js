@@ -40,3 +40,6 @@ const http = {
     put: (url, data) => _http('PUT', url, data),
     delete: (url, data) => _http('DELETE', url, data)
 }
+module.exports={
+    http
+}
