@@ -8,7 +8,7 @@
       class="item"
       wx:for="{{lists}}"
       wx:key="{{item.id}}"
-      wx:if="{{!item.conpleted}}"
+      wx:if="{{!item.completed}}"
       data-index="{{index}}"
     >
       <view

@@ -3,9 +3,7 @@ Page({
   updateId: '',
   updatIndex: '',
   data: {
-    lists: [
-      {id: 1, description: "我今天干了什么，明天干什么，后天干了什么", conpleted: false},
-    ],
+    lists: [],
     visibleConfirm: false,
     visibleUpdateConfirm: false,
     updateContent: "",
@@ -53,11 +51,12 @@ Page({
     let index = event.currentTarget.dataset.index
     let id = event.currentTarget.dataset.id
     http.put(`/todos/${id}`, {
-      conpleted: true
+      completed: true
     }).then(res => {
       let todo = res.data.resource
       this.data.lists[index] = todo
       this.setData({ lists: this.data.lists })
+      console.log(this.data.lists)
     })
   },
   hideConfirm() {
