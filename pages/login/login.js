@@ -14,6 +14,7 @@ Page({
   wxLogin(encrypted_data, iv) {
     wx.login({
       success: res => {
+        console.log('success')
         this.loginMe(res.code, iv, encrypted_data)
       }
     })
@@ -26,6 +27,7 @@ Page({
       app_id,
       app_secret
     }).then(res => {
+      console.log('success')
       this.saveMessage(res)
       wx.reLaunch({ url: '/pages/home/home' })
     })

@@ -21,9 +21,9 @@ const _http = (method, url, data) => {
                             url: 'pages/login/login',
                         })
                         reject({ statusCode, res })
-                    } else {
-                        resolve(res)
                     }
+                } else {
+                    resolve(res)
                 }
             },
             fail: error => {
@@ -40,6 +40,6 @@ const http = {
     put: (url, data) => _http('PUT', url, data),
     delete: (url, data) => _http('DELETE', url, data)
 }
-module.exports={
+module.exports = {
     http
 }
