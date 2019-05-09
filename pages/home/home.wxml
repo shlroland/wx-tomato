@@ -5,14 +5,14 @@
     scroll-y="true"
   >
     <view
-      class="item"
+      class="{{selectTab === index ? 'item active'  : 'item'}}"
       wx:for="{{lists}}"
       wx:key="{{item.id}}"
       wx:if="{{!item.completed}}"
       data-index="{{index}}"
     >
       <view
-        class="select {{item.finished && 'active'}}"
+        class="{{selectTab === index ? 'select active'  : 'select'}}"
         bindtap="destroyTodo"
         data-index="{{index}}"
         data-id="{{item.id}}"
