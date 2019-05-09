@@ -5,16 +5,27 @@ Page({
     this.fetchTomatoes()
     this.fetchTodos()
     this.setData({me: wx.getStorageSync('me')})
+
   },
   data: {
     tab: "tomato",
     tomatoes:{},
     todos:{},
-    me:{}
+    me:{},
+    tabIndex:'0'
   },
   changeTab(e){
     let name = e.currentTarget.dataset.name
+    if(name === 'tomato'){
+      this.data.tabIndex = '0'
+    }else if(name === 'task'){
+      this.data.tabIndex = '1'
+    }
     this.setData({tab:name})
+    this.setData({tabIndex : this.data.tabIndex })
+  },
+  currentChange(e){
+    this.setData({tabIndex : e.detail.current })
   },
   fetchTomatoes(){
     http.get('/tomatoes',{is_group:'yes'})
@@ -29,5 +40,5 @@ Page({
       console.log(res.data.resources)
       this.setData({todos:res.data.resources})
     })
-  }
+  },
 })
