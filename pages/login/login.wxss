@@ -1,42 +1,46 @@
 /* pages/login/login.wxss */
-.login{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    background-color: #eef7f6;
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: #eef7f6;
 }
-.login .avatar{
-    width: 250rpx;
-    height: 250rpx;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 16rpx solid #f6705a;
-    margin-bottom: 20rpx;
-    margin-top: 283rpx;
+.login .avatar {
+  width: 250rpx;
+  height: 250rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 16rpx solid #f6705a;
+  margin-bottom: 20rpx;
+  margin-top: 283rpx;
 }
-.login .name-wrap{
-    color: #f6705a;
-    font-size: 38rpx;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60rpx;
-    width: 100%
+.login .name-wrap {
+  color: #f6705a;
+  font-size: 38rpx;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60rpx;
+  width: 100%;
 }
-.login .name-wrap::after{
-    content: "";
-    position: absolute;
-    bottom: -10rpx;
-    left: 50%;
-    width: 20%;
-    height: 4rpx;
-    background-color: #f6705a;
-    transform: translateX(-50%)
+.login .name-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: -10rpx;
+  left: 50%;
+  width: 20%;
+  height: 4rpx;
+  background-color: #f6705a;
+  transform: translateX(-50%);
 }
-button::after{ border: none; }
-.button-hover { opacity: 0.6; }
+button::after {
+  border: none;
+}
+.button-hover {
+  opacity: 0.6;
+}
 .loginButton {
   width: 360rpx;
   height: 80rpx;
@@ -47,11 +51,5 @@ button::after{ border: none; }
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background: linear-gradient(to right,#EF9B75, #F6705A);
-}
-
-.login .binding{
-  color: #F6705A;
-  font-size: 24rpx;
-  margin-top: 46rpx;
+  background: linear-gradient(to right, #ef9b75, #f6705a);
 }

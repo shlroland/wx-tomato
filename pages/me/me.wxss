@@ -69,23 +69,15 @@
   margin-left: 59%;
 }
 
-#swiper-main{
-  flex: 1;
-  position: relative;
-}
-#swiper-wrap{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top:0;
-  bottom: 0;
-  right: 0;
+.container .swiper-wrap{
+  min-height: 880rpx;
+  padding-bottom: 300rpx;
 }
 .cantainer .lists {
+  height: 880rpx;
+  overflow: scroll;
   padding: 0 24rpx;
   box-sizing: border-box;
-  overflow: scroll;
 }
 
 .cantainer .lists .item {

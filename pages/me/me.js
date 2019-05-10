@@ -5,7 +5,6 @@ Page({
     this.fetchTomatoes()
     this.fetchTodos()
     this.setData({me: wx.getStorageSync('me')})
-
   },
   data: {
     tab: "tomato",
@@ -30,14 +29,13 @@ Page({
   fetchTomatoes(){
     http.get('/tomatoes',{is_group:'yes'})
     .then(res=>{
-      
       this.setData({tomatoes:res.data.resources})
     })
   },
   fetchTodos(){
     http.get('/todos',{is_group:'yes'})
     .then(res=>{
-      console.log(res.data.resources)
+      console.log(res)
       this.setData({todos:res.data.resources})
     })
   },

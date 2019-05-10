@@ -8,7 +8,7 @@
         type="userNickName"
         class="name"
       ></open-data>
-      <text>绑定pc账号</text>
+      <navigator url="/pages/binding/binding" wx:if="{{!me.account}}" >绑定pc账号</navigator>
     </view>
     <button
       open-type="contact"
@@ -32,17 +32,18 @@
     >我完成的任务</view>
   </view>
   <view class=' {{ tabIndex === 1 ? "active afterTabs" : "afterTabs"  }}' ></view>
-  <view id="swiper-main"><swiper
+<swiper
     current="{{tabIndex}}"
     duration="{{500}}"
     bindchange="currentChange"
-    id="swiper-wrap"
+    class="swiper-wrap"
+    style="min-height: 880rpx"
   >
     <swiper-item>
       <scroll-view
         scroll-y="true"
         class="lists"
-        wx:if="{{tab==='tomato'}}"
+        wx:if="{{tab ==='tomato'}}"
       >
         <view
           class="item"
@@ -89,6 +90,7 @@
             wx:for="{{todos[key]}}"
             wx:for-index="index"
             wx:key="index"
+            wx:if="{{item.completed}}"
           >
             <text>{{formattor.dateFormat(item.created_at,"hh:mm")}}</text>
             <view class="detail">{{item.description}}</view>
@@ -96,6 +98,5 @@
         </view>
       </scroll-view>
     </swiper-item>
-  </swiper></view>
-
+  </swiper>
 </view>
