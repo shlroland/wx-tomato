@@ -15,14 +15,14 @@
   "tabBar": {
     "color": "#515151",
     "selectedColor": "#F6705A",
-    "backgroundColor":"#fff",
-    "borderstyle":"black",
-    "list":[
+    "backgroundColor": "#fff",
+    "borderstyle": "black",
+    "list": [
       {
-        "pagePath":"pages/home/home",
-        "text":"专注",
-        "iconPath":"imgs/2019-2-24-18-49-27/home.png",
-        "selectedIconPath":"imgs/2019-2-24-18-49-27/home-active.png"
+        "pagePath": "pages/home/home",
+        "text": "专注",
+        "iconPath": "imgs/2019-2-24-18-49-27/home.png",
+        "selectedIconPath": "imgs/2019-2-24-18-49-27/home-active.png"
       },
       {
         "pagePath": "pages/me/me",
@@ -31,5 +31,6 @@
         "selectedIconPath": "imgs/2019-2-24-18-49-27/me-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

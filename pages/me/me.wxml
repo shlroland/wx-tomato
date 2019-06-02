@@ -20,21 +20,19 @@
   <view class="tabs">
     <view
       hover-class="hover-active"
-      class="{{tab === 'tomato' && 'active'}}"
-      data-name="tomato"
-      bindtap="changeTab"
+      data-current="0"
+      bindtap="changeTomato"
     >番茄历史</view>
     <view
       hover-class="hover-active"
-      class="{{tab === 'task' && 'active'}}"
-      data-name="task"
-      bindtap="changeTab"
+      data-current="1"
+      bindtap="changeTask"
     >我完成的任务</view>
   </view>
-  <view class=' {{ tabIndex === 1 ? "active afterTabs" : "afterTabs"  }}' ></view>
+  <view class="{{ tabIndex === 1 ? 'active afterTabs' : 'afterTabs' }}"></view>
 <swiper
     current="{{tabIndex}}"
-    duration="{{500}}"
+    duration="1000"
     bindchange="currentChange"
     class="swiper-wrap"
     style="min-height: 880rpx"
@@ -43,7 +41,7 @@
       <scroll-view
         scroll-y="true"
         class="lists"
-        wx:if="{{tab ==='tomato'}}"
+        wx:if="{{tabIndex === 0 }}"
       >
         <view
           class="item"
@@ -72,7 +70,7 @@
       <scroll-view
         scroll-y="true"
         class="lists"
-        wx:if="{{tab==='task'}}"
+        wx:if="{{tabIndex === 1}}"
       >
         <view
           class="item"
